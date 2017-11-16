@@ -124,7 +124,7 @@ void cParticle::integrateVerlet(float dt)
 }
 
 
-bool cParticle::inCollision(cParticle *other) {
+bool cParticle::inCollision(cParticle* other) {
 	// red = (0.55, 0.09, 0.09)
 	float r1 = radius;
 	float r2 = other->radius;
@@ -144,17 +144,9 @@ bool cParticle::inCollision(cParticle *other) {
 
 
 	if (dist < sumR2) {
-		diffuse[0] = 0.55; 
-		diffuse[1] = 0.09; 
-		diffuse[2] = 0.09; 
+		return true; 
  	}
-	else {
-		diffuse[0] = oDiffuse[0];
-		diffuse[1] = oDiffuse[1]; 
-		diffuse[2] = oDiffuse[2]; 
-	}
-
-	return true; 
+	return false; 
 }
 
 void cParticle::checkFloorCollisions() {
